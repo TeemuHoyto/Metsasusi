@@ -12,6 +12,7 @@ nappulat[1].onclick = function() { painallus(1) };
 nappulat[2].onclick = function() { painallus(2) };
 nappulat[3].onclick = function() { painallus(3) };
 
+
 let nykyinen =0;
 let tulosElementti = document.getElementById('tulos');
 let arvo = parseInt(tulosElementti.innerHTML);
@@ -23,6 +24,7 @@ let tens =0;
 let seconds = 0;
 let ajastin = 0;
 let Interval ;
+let end="end";
 
 function star(){
   
@@ -60,7 +62,10 @@ aktivoiSeuraava(aika);
   }
 
 function aktivoiSeuraava(aika) {
-  aika = aika -10;
+  if(end === ""){
+return;
+  }else{
+    aika = aika -10;
   let seuraava = arvoUusi(nykyinen);
 
   nappulat[nykyinen].style.backgroundColor = "#a53d3d";
@@ -69,13 +74,13 @@ function aktivoiSeuraava(aika) {
   nykyinen = seuraava;
 
   ajastin = setTimeout(aktivoiSeuraava, aika, aika);
+  }
+  
   function arvoUusi(edellinen) {
-    // Tämä on vain demotarkoituksessa näin!
-    // Koodaa tämä niin, että seuraava arvotaan. Muista, että sama ei saa
-    // tulla kahta kertaa peräkkäin.
     let uusi = getRandomInt(0, 3);
-    if(uusi == edellinen){
+   if(uusi == edellinen){
       arvoUusi()
+      
     }
     return uusi;
   }
@@ -86,32 +91,27 @@ function painallus(i) {
   }else{
     lopetaPeli();
     pysayta()
+    end="";
+    
   }
 
   }
 function pysayta() {
        clearInterval(Interval);
+       ajastin = 0;
   }
 
 function lopetaPeli() {
-     // pysäytä ajastin
-  
     for (var i = 0; i < 4; i++) {
       nappulat[i].style.backgroundColor = "black";
       nappulat[i].onclick = null;
-  
+     
     }
 loppu.style.visibility = "visible";
 loppuSumma.innerHTML ="<br>"+ tulosElementti.innerHTML;
 
-
-    // ilmoita lopputulos
-    // Vinkki: dokumentissa on valmiina taustaelementti ja elementti
-    // lopputuloksen näyttämiseen. Aseta overlay-elementti näkyväksi
-    // ja näytä tulos gameoover-elementissä
   }
 
-  // generoi satunnaisen kokonaisluvun väliltä min - max
   function getRandomInt(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
   }
