@@ -1,0 +1,66 @@
+body{
+    background-color:#000;
+overflow: hidden;
+}
+
+.box{
+    overflow: hidden;
+    font-family: monospace;
+    text-align:center;
+    color:#fff;
+    font-size:1em;
+    width:50vw;
+    height:auto;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:5em;
+    
+}
+.boxTOP{
+    font-family: monospace;
+    text-align:center;
+    color:#fff;
+    font-size:1em;
+    width:50vw;
+    height:auto;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:5em;
+    
+}
+.headerMain{
+    font-size:4em;
+    color:rgba(240,240,240,0.2);
+    text-align:center;
+    font-family: monospace;
+}
+.boxButton{
+    width:80vw;
+    display:flex;
+    margin-left:25%;
+    margin-right:auto;
+}
+.button{
+    background-color:black;
+    color:white;
+    border:1px solid white;
+    margin-left:1em;
+    outline: none; 
+    margin-right:1em;
+}
+.reset{
+    margin-left:1em;
+    background-color:black;
+    color:white;
+    border:1px solid white;
+    outline: none; 
+    margin-right:2em;
+}
+.input{
+    font-family: monospace;
+    padding:5px;
+    background-color: #000;
+    color:white;
+    border:1px solid white;
+  outline: none; 
+}

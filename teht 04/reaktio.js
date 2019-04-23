@@ -24,6 +24,7 @@ let tens =0;
 let seconds = 0;
 let ajastin = 0;
 let Interval ;
+let publicArray=[];
 let end="end";
 
 function star(){
@@ -36,7 +37,7 @@ aktivoiSeuraava(aika);
 }  
 
   
-  function startTimer () {
+  function startTimer () { //sekunttikello
     tens++; 
     
     if(tens < 9){
@@ -67,10 +68,10 @@ return;
   }else{
     aika = aika -10;
   let seuraava = arvoUusi(nykyinen);
-
+ publicArray.push(nykyinen);
   nappulat[nykyinen].style.backgroundColor = "#a53d3d";
   nappulat[seuraava].style.backgroundColor = "#11CCEC";
-  
+  console.log(publicArray);
   nykyinen = seuraava;
 
   ajastin = setTimeout(aktivoiSeuraava, aika, aika);
@@ -81,6 +82,8 @@ return;
    if(uusi == edellinen){
       arvoUusi()
       
+  
+
     }
     return uusi;
   }
