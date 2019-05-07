@@ -13,7 +13,7 @@ nappulat[2].onclick = function() { painallus(2) };
 nappulat[3].onclick = function() { painallus(3) };
 
 
-let nykyinen =0;
+let nykyinen =1;
 let tulosElementti = document.getElementById('tulos');
 let arvo = parseInt(tulosElementti.innerHTML);
 let loppu = document.getElementById('overlay');
@@ -24,11 +24,11 @@ let tens =0;
 let seconds = 0;
 let ajastin = 0;
 let Interval ;
-let publicArray=[];
+let arvotutNum = [];
+
 let end="end";
 
 function star(){
-  
      clearInterval(Interval);
      Interval = setInterval(startTimer, 10);
 
@@ -37,7 +37,7 @@ aktivoiSeuraava(aika);
 }  
 
   
-  function startTimer () { //sekunttikello
+  function startTimer () {
     tens++; 
     
     if(tens < 9){
@@ -65,36 +65,43 @@ aktivoiSeuraava(aika);
 function aktivoiSeuraava(aika) {
   if(end === ""){
 return;
-  }else{
-    aika = aika -10;
-  let seuraava = arvoUusi(nykyinen);
- publicArray.push(nykyinen);
-  nappulat[nykyinen].style.backgroundColor = "#a53d3d";
-  nappulat[seuraava].style.backgroundColor = "#11CCEC";
-  console.log(publicArray);
+  }else if(arvotutNum.length ==10){
+    lopetaPeli()
+    pysayta()
+}else{
+  aika = aika *0.95;
+  let seuraava = arvoUusi();
+ arvotutNum.push(seuraava);
+  nappulat[nykyinen].style.backgroundImage ="url('pallero.png')";
+  nappulat[seuraava].style.backgroundImage ="url('Naama.png')";
+  console.log(arvotutNum);
   nykyinen = seuraava;
-
+}
   ajastin = setTimeout(aktivoiSeuraava, aika, aika);
   }
-  
-  function arvoUusi(edellinen) {
-    let uusi = getRandomInt(0, 3);
-   if(uusi == edellinen){
-      arvoUusi()
-      
-  
 
+
+  function arvoUusi(edellinen) {
+   
+    let uusi = getRandomInt(0, 3);
+    
+   if(uusi === arvotutNum.length){
+    uusi = getRandomInt(0, 3);
     }
+    
     return uusi;
   }
-}
+
 function painallus(i) {
-  if(i==nykyinen){arvo = arvo + 1;
-        tulosElementti.innerHTML = arvo;
-  }else{
+  if(i!=arvotutNum[0]){
     lopetaPeli();
     pysayta()
-    end="";
+    end=""; 
+   
+  }else{
+    tulosElementti.innerHTML = arvo;
+    arvo = arvo + 1;
+    arvotutNum.shift()
     
   }
 
@@ -106,7 +113,7 @@ function pysayta() {
 
 function lopetaPeli() {
     for (var i = 0; i < 4; i++) {
-      nappulat[i].style.backgroundColor = "black";
+      nappulat[i].style.backgroundImage ="url('black.png')";
       nappulat[i].onclick = null;
      
     }

@@ -3,9 +3,10 @@ const print = document.getElementById('printter');
 let printTop = document.getElementById('printter2');
 let total1 = parseInt(document.getElementById('input1').value);
 let total2 = parseInt(document.getElementById('input2').value);
-
-
-
+timeDelay();  
+function timeDelay(){
+  setTimeout(function(){printTop.innerHTML = "Hello human, input numbers to the input boxes on top right and press buttons to enjoy functions that do thigs. Input box 1 takes a low number and inut box nro 2 takes a higher number. To enjoy functions to their fullest one must eat and spend time with cats. Functions 3,5,6 require a numbers in both boxes to function as intended.";},2000);
+}
 function printEven() {
   let i = 2;
   print.innerHTML = '';
@@ -168,7 +169,9 @@ document.getElementById('btn6').onclick = function f() {
   }
 };
 function all(){
+  printTop.innerHTML = "This function does not work";
   const arrOfFunc = [printEven()];
+
     for(let i = 0; i<=arrOfFunc.length;i++ ){
      console.log(arrOfFunc[i]);
       print.innerHTML=arrOffunc[i](   );

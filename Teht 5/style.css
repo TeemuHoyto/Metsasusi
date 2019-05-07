@@ -8,7 +8,7 @@ overflow: hidden;
     font-family: monospace;
     text-align:center;
     color:#fff;
-    font-size:1em;
+    font-size:1.5em;
     width:50vw;
     height:auto;
     margin-left:auto;
@@ -20,7 +20,7 @@ overflow: hidden;
     font-family: monospace;
     text-align:center;
     color:#fff;
-    font-size:1em;
+    font-size:1.5em;
     width:50vw;
     height:auto;
     margin-left:auto;
@@ -37,6 +37,7 @@ overflow: hidden;
 .boxButton{
     width:80vw;
     display:flex;
+    margin-top:6em;
     margin-left:25%;
     margin-right:auto;
 }

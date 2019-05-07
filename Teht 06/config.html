@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Config for time machine</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='config.css'>
+</head>
+
+<body>
+    <h1>Asetukset</h1>
+    <br>
+    <form id="config-form">
+        <div class="field">
+           
+            <div>
+                <input name="title" class="test" type="text" placeholder="Otsikko">
+            </div>
+        </div>
+        <div class="field">
+            
+            <div>
+                <input name="date" type="date">
+                <input name="time" type="time" value="00:00" placeholder="Määräaika    00:00">
+            </div>
+        </div>
+        
+            <div>
+                <input name="message" type="text"  placeholder="Kirjoita viesti, kun määräaika on saavutettu">
+            </div>
+        <div>
+            <button type="submit">Aseta</button>
+        </div>
+    </form>
+    <script src='config.js'></script>
+</body>
+
+</html>
