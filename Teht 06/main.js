@@ -1,7 +1,19 @@
-let THEDATE = new Date("Feb 7, 2020 12:12:12").getTime();
-let T = setInterval(function(){
+marsu();
+  function marsu(){
+    if(typeof localStorage.getItem('otsikko') === "string" ){
+      printTop.innerHTML = "";
+    }else{
+    printTop.innerHTML = "Hello human, input desired date to <a href='config.html' target='_blank'>config.html</a>  and machine gods will grant your wishes.";
+}
+  }
+let channel = new BroadcastChannel('StevesTimeMachineToTalkWithMachineGods');
+channel.onmessage = function (ev) {location.reload(),localStorage.setItem('date',ev.data[1]), localStorage.setItem('otsikko',ev.data[0]), localStorage.setItem('message',ev.data[2]); 
+   }
+   let humanDate = new Date(localStorage.getItem('date')).getTime();
+   topi.innerHTML = localStorage.getItem('otsikko');
+   let T = setInterval(function(){
     let now = new Date().getTime();
-    let distance = THEDATE - now;
+    let distance = humanDate - now;
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -9,12 +21,9 @@ let T = setInterval(function(){
     document.getElementById("aika").innerHTML = days + "d " + hours + "h "
     + minutes + "m " + seconds + "s ";
     if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("aika").innerHTML = "Jee.... Paljon onnea";
+        clearInterval(T);
+        document.getElementById("aika").innerHTML = "";
+        document.getElementById("topi").innerHTML = localStorage.getItem('message');
       }
-    }, 1000);
-
-console.log(THEDATE);
-function duration(from, to){
-    console.log(duration(10, 20));
-}
+    });
+    

@@ -12,23 +12,23 @@
 <body>
     <h1>Asetukset</h1>
     <br>
-    <form id="config-form">
+    <form id="config-form" onsubmit="return isValidForm()">
         <div class="field">
            
             <div>
-                <input name="title" class="test" type="text" placeholder="Otsikko">
+                <input name="title" id="otsikko" class="test" type="text" placeholder="Otsikko">
             </div>
         </div>
         <div class="field">
             
             <div>
-                <input name="date" type="date">
-                <input name="time" type="time" value="00:00" placeholder="Määräaika    00:00">
+                <input name="date" id="date" type="date">
+                <input name="time" id="time" type="time" value="00:00" placeholder="Määräaika    00:00">
             </div>
         </div>
         
             <div>
-                <input name="message" type="text"  placeholder="Kirjoita viesti, kun määräaika on saavutettu">
+                <input name="message" type="text" id="message"  placeholder="Kirjoita viesti, kun määräaika on saavutettu">
             </div>
         <div>
             <button type="submit">Aseta</button>
