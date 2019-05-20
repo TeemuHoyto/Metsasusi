@@ -7,7 +7,7 @@ marsu();
 }
   }
 let channel = new BroadcastChannel('StevesTimeMachineToTalkWithMachineGods');
-channel.onmessage = function (ev) {location.reload(),localStorage.setItem('date',ev.data[1]), localStorage.setItem('otsikko',ev.data[0]), localStorage.setItem('message',ev.data[2]); 
+channel.onmessage = function (ev) {location.reload(); 
    }
    let from = new Date(localStorage.getItem('date')).getTime();
    topi.innerHTML = localStorage.getItem('otsikko');
